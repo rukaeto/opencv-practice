@@ -48,7 +48,7 @@ selected_min_size = st.sidebar.slider(label='minSizeの値を設定してくだ�
                                         max_value=400,
                                         value = 50)
 
-selected_angle = st.sidebar.slider(label='回転角の設定(左回転)',
+selected_angle = st.sidebar.slider(label='回転角の設定（右回転）',
                                     min_value= -180,
                                     max_value=180,
                                     value=0)
@@ -77,10 +77,10 @@ with col1:
     st.text(f'minSize: ({selected_min_size}, {selected_min_size})')
     if selected_angle == 0:
         st.text('画像を回転させない')
-    elif selected_angle < 0:
-        st.text(f'画像を左に{-selected_angle}° 回転' )
     elif selected_angle > 0:
         st.text(f'画像を右に{selected_angle}° 回転' )
+    elif selected_angle < 0:
+        st.text(f'画像を左に{-selected_angle}° 回転' )
 
 with col2:
     uploaded_file = st.file_uploader('画像をアップロードすると識別を開始します。', type=['jpg', 'jpeg', 'png'])
