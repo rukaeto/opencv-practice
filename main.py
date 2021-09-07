@@ -77,9 +77,9 @@ with col1:
     st.text(f'minSize: ({selected_min_size}, {selected_min_size})')
     if selected_angle == 0:
         st.text('画像を回転させない')
-    elif selected_angle > 0:
-        st.text(f'画像を左に{-selected_angle}° 回転' )
     elif selected_angle < 0:
+        st.text(f'画像を左に{-selected_angle}° 回転' )
+    elif selected_angle > 0:
         st.text(f'画像を右に{selected_angle}° 回転' )
 
 with col2:
