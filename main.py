@@ -78,9 +78,9 @@ with col1:
     if selected_angle == 0:
         st.text('画像を回転させない')
     elif selected_angle > 0:
-        st.text(f'画像を左に{selected_angle}° 回転' )
+        st.text(f'画像を左に{-selected_angle}° 回転' )
     elif selected_angle < 0:
-        st.text(f'画像を右に{-selected_angle}° 回転' )
+        st.text(f'画像を右に{selected_angle}° 回転' )
 
 with col2:
     uploaded_file = st.file_uploader('画像をアップロードすると識別を開始します。', type=['jpg', 'jpeg', 'png'])
@@ -93,7 +93,7 @@ if uploaded_file is not None:
     if selected_angle != 0:
         height, width = np_img.shape[:2]
         size = (height, width)
-        angle_rad = selected_angle / 180.0*np.pi
+        angle_rad = -selected_angle / 180.0*np.pi
         w_rot = int(np.round(height*np.absolute(np.sin(angle_rad))+width*np.absolute(np.cos(angle_rad))))
         h_rot = int(np.round(height*np.absolute(np.cos(angle_rad))+width*np.absolute(np.sin(angle_rad))))
         size_rot = (w_rot, h_rot)
@@ -101,7 +101,7 @@ if uploaded_file is not None:
         # 元画像の中心を軸にして画像を回転させる
         center = (width/2, height/2)
         scale = 1.0
-        rotation_matrix = cv2.getRotationMatrix2D(center, selected_angle, scale)
+        rotation_matrix = cv2.getRotationMatrix2D(center, -selected_angle, scale)
 
         # 平行移動を加える
         affine_matrix = rotation_matrix.copy()
