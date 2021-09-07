@@ -1,0 +1,3 @@
+Pillow
+streamlit
+opencv-python-headless
