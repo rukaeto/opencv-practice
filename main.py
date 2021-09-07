@@ -24,7 +24,7 @@ cascade_dict = {
 }
 
 # タイトル
-st.title('Open-CV-practice')
+st.title('カスケード分類器チェッカー')
 
 # サイドバー
 selected_cascade = st.sidebar.selectbox('カスケード分類器を選択してください。',
