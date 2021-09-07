@@ -68,7 +68,7 @@ color_dict = {
 selected_color = color_dict[selected_color_name]
 
 # メインコンテンツ
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 with col1:
     st.write('以下の設定で顔認識を行います。')
     st.text(f'カスケード分類器: {selected_cascade}')
